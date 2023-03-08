@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Customer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- MAIN CSS  -->
+    <link rel="stylesheet" href="../../asset/css/styles.css">
+</head>
+
+<body>
+    <header class="headerCustomer">
+        <div class="background__header"></div>
+        <!-- place navbar here -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-leaf"></i>
+                    GREENERY
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mb-2 mb-lg-0 w-100 d-flex justify-content-end">
+                        <li class="nav-item text-center">
+                            <a href="../../index.html">
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item text-center" id="cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="totalQuantity"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="carousel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12 d-flex flex-column justify-content-center">
+                        <div class="carousel-content">
+                            <h2 class="fw-bold">More plants, more love</h2>
+                            <p>
+                                New plants are coming in this month, we decide to discount 10% all new babies
+                            </p>
+                            <button class="btn-yellow mb-3">Buy now !</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12 mt-sm-3 mt-xs-2 text-end">
+                        <img class="img-fluid" src="../../asset/img/carousel.png" alt="carousel_png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="products container">
+            <div class="products__heading text-center py-2">
+                <h2 class="fw-bold">Our New Plants</h2>
+            </div>
+            <div class="products__content">
+                <select class="listType form-select mb-5" onChange="window.getProducts()" aria-label="Default select example">
+                    <option selected>All Types</option>
+                    <option value="1">Indoor Plants</option>
+                    <option value="2">Outdoor Plants</option>
+                </select>
+                <div id="products" class="row">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+        <div class="container">
+            <div class="row">
+                <div class="contact col-lg-3 col-md-6 col-sm-12">
+                    <h1 class="fw-bold display-3">GREENERY</h1>
+                    <ul>
+                        <li>Address <i class="fa fa-address-book"></i> :
+                            <a href="">District 1, Ho Chi Minh city</a>
+                        </li>
+                        <li>Tel <i class="fa fa-phone"></i> :
+                            <a href="tel:+84 073 289 4532">+84 073 289 4532</a>
+                        </li>
+                        <li>Email <i class="fa fa-envelope"></i> :
+                            <a href="email:capstoneAPI@gmail.com">capstoneAPI@gmail.com</a>
+                        </li>
+                    </ul>
+                    <div class="position-absolute">
+                        <img src="../../asset/img/footer2.png" alt="footer2">
+                    </div>
+                </div>
+                <div class="readMore col-lg-3 col-md-6 col-sm-12">
+                    <h1 class="fw-bold display-7">Read more</h1>
+                    <ul>
+                        <li>
+                            <a href="#">> Links</a>
+                        </li>
+                        <li>
+                            <a href="#">> Blog Posts</a>
+                        </li>
+                        <li>
+                            <a href="#">> About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">> Service</a>
+                        </li>
+                        <li>
+                            <a href="#">> Team</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 text-end">
+                    <div class="footer__right text-center">
+                        <div>
+                            <img src="../../asset/img/footer1.png" alt="footer2">
+                        </div>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title display-6 fw-bold" id="exampleModalLabel">
+                        SHOPPING CART <i class="fa fa-shopping-cart"></i>
+                        <p>An overview of your selected products</p>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NUMBER</th>
+                                    <th scope="col">PRODUCT NAME</th>
+                                    <th scope="col">IMAGE</th>
+                                    <th scope="col">QUANTITY</th>
+                                    <th scope="col">PRICE</th>
+                                    <th scope="col">TOTAL</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemList">
+                            </tbody>
+                            <tfoot id="totalPayment">
+
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                        <button type="button" class="btn-grey" data-bs-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn-red" id="emptyCart">Empty Cart</button>
+                    </div>
+                    <button id="pay" type="button" class="btn-green">Pay Now $</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- sweetalert2  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.8/sweetalert2.min.js" integrity="sha512-ySDkgzoUz5V9hQAlAg0uMRJXZPfZjE8QiW0fFMW7Jm15pBfNn3kbGsOis5lPxswtpxyY3wF5hFKHi+R/XitalA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="module" src="../controller/customer.js"></script>
+    <script type="module" src="../../main.js"></script>
+</body>
+
+</html>

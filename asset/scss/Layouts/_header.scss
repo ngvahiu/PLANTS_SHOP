@@ -1,0 +1,182 @@
+$header-height: 90px;
+$fs-brand: 1.8rem;
+
+.headerCustomer {
+    position: relative;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+
+    .background__header {
+        content: "";
+        background-image: url('.././img/background-header.png');
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    .navbar {
+        height: 100%;
+
+        a {
+            text-decoration: none;
+            color: white;
+            margin: 0 1rem;
+            cursor: pointer;
+            transition: all .5s;
+
+            &:hover {
+                color: $color-green-light;
+            }
+        }
+
+        i {
+            font-size: 40px;
+        }
+
+        .navbar-toggler {
+            background-color: white;
+            transition: all .5s;
+
+            &:hover {
+                background-color: $color-green-light;
+            }
+        }
+
+        #navbarNavDropdown {
+
+            .nav-item {
+                cursor: pointer;
+
+                &:hover a {
+                    color: $color-green-light;
+                }
+            }
+
+            #cart {
+                position: relative;
+                transition: all .5s;
+                color: white;
+
+                .totalQuantity {
+                    display: block;
+                    position: absolute;
+                    font-size: 15px;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    text-align: center;
+                    line-height: 1.5rem;
+                    color: black;
+                    background-color: white;
+                    border-radius: 100%;
+                    top: -20%;
+                    right: -50%;
+                    transition: all .5s;
+                }
+
+                &:hover {
+                    color: $color-green-light;
+                }
+
+                &:hover .totalQuantity {
+                    background-color: $color-green-light;
+                }
+            }
+        }
+
+        #navbarNavDropdown.show {
+            width: 100%;
+            border-top: 2px solid white;
+        }
+
+        .navbar-brand {
+            @include textStyle(white, $fs-brand, 700);
+            margin-left: 50px;
+            margin-right: 0;
+        }
+    }
+}
+
+@include responsive('lg') {
+    .headerCustomer {
+
+        .navbar {
+
+            a {
+                margin: 0;
+            }
+
+            i {
+                font-size: 35px;
+            }
+
+            #navbarNavDropdown {
+
+                .nav-item {
+                    margin: 5px 0;
+                }
+
+                #cart {
+
+                    .totalQuantity {
+                        right: 46%;
+                        font-size: 10px;
+                        width: 1rem;
+                        height: 1rem;
+                        line-height: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive('md') {
+    .headerCustomer {
+        .navbar {
+
+            #navbarNavDropdown {
+
+                #cart {
+
+                    .totalQuantity {
+                        right: 45.5%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive('sm') {
+    .headerCustomer {
+
+        .navbar {
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .navbar-toggler {
+                font-size: 1rem;
+            }
+
+            #navbarNavDropdown {
+
+                .nav-item {
+                    margin: 5px 0;
+                }
+
+                #cart {
+
+                    .totalQuantity {
+                        right: 44%;
+                    }
+                }
+            }
+        }
+    }
+}

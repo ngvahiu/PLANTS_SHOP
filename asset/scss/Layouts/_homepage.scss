@@ -1,0 +1,48 @@
+// HOMEPAGE
+.homepage__main {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image: url("../img/background.png");
+    background-size: cover;
+
+    .homepage__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .homepage__button {
+            color: #13502F;
+            background-color: #EBAD01;
+            font-size: 25px;
+            margin: 10px;
+            padding-top: 30px;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            outline: #13502F;
+            border: 2px #13502F solid;
+            transition: all 0.5s;
+        }
+
+        .homepage__button:hover {
+            color: #EBAD01;
+            background-color: #13502F;
+            padding: 10px;
+        }
+    }
+}
+
+@include responsive('xs') {
+    .homepage__main {
+    
+        .homepage__content {
+    
+            .homepage__button {
+                font-size: 20px;
+            }
+        }
+    }
+}

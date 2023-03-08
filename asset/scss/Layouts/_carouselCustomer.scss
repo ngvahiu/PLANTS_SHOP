@@ -1,0 +1,68 @@
+.carousel {
+    background-color: $color-green-light;
+    padding: 150px 0 50px;
+
+    .carousel-content {
+        h2 {
+            font-size: 3rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            font-size: 1.8rem;
+        }
+    }
+
+    img {
+        width: 80%;
+        height: 600px;
+    }
+}
+
+@include responsive('xl') {
+    .carousel {
+        img {
+            width: 80%;
+            height: 400px;
+        }
+    }
+}
+
+@include responsive('lg') {
+    .carousel {
+        .carousel-content {
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                margin: 0.8rem 0;
+                font-size: 1.6rem;
+            }
+        }
+
+        img {
+            width: 95%;
+        }
+    }
+}
+
+@include responsive('md') {
+    .carousel {
+        .carousel-content {
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                margin: 0.5rem 0;
+                font-size: 1.2rem;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 350px;
+        }
+    }
+}

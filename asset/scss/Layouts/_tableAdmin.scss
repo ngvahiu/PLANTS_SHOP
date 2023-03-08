@@ -1,0 +1,145 @@
+#admin__section {
+    background-color: rgb(238, 161, 201);
+
+    .AdminContent {
+        color: rgb(159, 202, 240);
+        padding: 150px 0px;
+
+        .HeaderTable ul {
+            background-color: $color-green-dark;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            margin: 0;
+            border-radius: 10px 10px 0px 0px;
+
+            li {
+                font-size: 30px;
+                font-weight: 700;
+                text-align: left;
+
+                a:hover {
+                    span {
+                        color: rgb(159, 202, 240);
+                    }
+                }
+
+                button {
+                    font-size: 1rem;
+                }
+
+            }
+        }
+
+        .tableAdmin {
+            background-color: #fff;
+
+            th {
+                text-align: center;
+            }
+        }
+
+    }
+
+    .AddingProductForm {
+        .FormTitle {
+            h2 {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@include responsive('xl') {
+    .AdminContent {
+        padding: 150px;
+        font-size: 20px;
+    }
+}
+
+@include responsive('lg') {
+    .AdminContent {
+        #sortType {
+            font-size: 0.9rem;
+        }
+
+        padding: 150px;
+        font-size: 18px;
+    }
+}
+
+@include responsive('md') {
+    .AdminContent {
+        #sortType {
+            font-size: 0.8rem;
+            width: 50% !important;
+        }
+
+        padding: 130px;
+        font-size: 16px;
+    }
+
+    #myModal {
+        .modal-body {
+            div.text-danger {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@include responsive('sm') {
+    #admin__section {
+        .AdminContent {
+            font-size: 12px;
+
+            #searchName {
+                font-size: 0.7rem;
+            }
+            #searchNameBtn{
+                padding: 0.5rem;
+            }
+
+            .HeaderTable ul {
+                li {
+                    font-size: 1.5rem;
+
+                    button {
+                        font-size: 0.7rem;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+
+            .tableAdmin {
+
+                th,
+                td {
+                    padding: 5px;
+
+                    button {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+
+        #myModal {
+            .modal-body {
+                div.text-danger {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+
+
+}
+
+@include responsive('xs') {
+    .AdminContent {
+        padding: 5px;
+        font-size: 10px;
+    }
+}

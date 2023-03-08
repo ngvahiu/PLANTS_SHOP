@@ -1,0 +1,45 @@
+$border-yellow: 2px solid $color-yellow;
+$border-green: 2px solid $color-green-dark;
+$border-grey: 2px solid grey;
+$border-red: 2px solid red;
+
+.btn-yellow {
+    @include buttonStyle($color-yellow, $border-yellow, 5px, 20px, 10px);
+    transition: all .5s;
+    font-weight: 700;
+    
+    &:hover {
+        @include buttonStyleHover($color-yellow, $color-text, 0.7);
+    }
+}
+
+.btn-green {
+    @include buttonStyle($color-green-dark, $border-green, 5px, 20px, 10px);
+    transition: all .5s;
+    font-weight: 700;
+    
+    &:hover {
+        @include buttonStyleHover($color-green-dark, $color-text, 0.7);
+    }
+}
+
+.btn-grey {
+    @include buttonStyle(grey, $border-grey, 5px, 20px, 10px);
+    transition: all .5s;
+    font-weight: 700;
+    
+    &:hover {
+        @include buttonStyleHover(grey, $color-text, 0.7);
+    }
+}
+
+
+.btn-red {
+    @include buttonStyle(red, $border-red, 5px, 20px, 10px);
+    transition: all .5s;
+    font-weight: 700;
+    
+    &:hover {
+        @include buttonStyleHover(red, $color-text, 0.7);
+    }
+}

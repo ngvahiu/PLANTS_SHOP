@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Plants Shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- MAIN CSS  -->
+    <link rel="stylesheet" href="../../asset/css/styles.css">
+
+</head>
+
+<body id="admin__section">
+    <header class="headerCustomer">
+        <div class="background__header"></div>
+        <!-- place navbar here -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-leaf"></i>
+                    GREENERY
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mb-2 mb-lg-0 w-100 d-flex justify-content-end">
+                        <li class="nav-item text-center">
+                            <a href="../../index.html">
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- PRODUCT TABLE -->
+        <div class="container AdminContent">
+            <!-- Search, sorting -->
+            <div class="d-flex justify-content-center">
+                <div class="input-group w-50">
+                    <input type="text" class="form-control" id="searchName"  onkeyup="window.sortAndSearch()"  placeholder="Plant's name"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn-yellow" type="button" id="searchNameBtn">Search</button>
+                </div>
+            </div>
+            <select name="" id="sortType" class="form-select w-25 my-4" onchange="window.sortAndSearch()">
+                <option valued>Choose sorting type</option>
+                <option value="1">Ascending sort</option>
+                <option value="2">Descending sort</option>
+            </select>
+            <!-- Header Table -->
+            <div class="HeaderTable">
+                <ul>
+                    <li>Plant Management</li>
+                    <li>
+                        <button id="AddProduct" class="btn-yellow" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="fa-solid fa-circle-plus"></i>
+                            Add Plant
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tableAdmin table-responsive">
+                <table class=" table table-hover">
+                    <!-- Head -->
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" colspan="3"><i class="fa fa-cog"></i> Action</th>
+                        </tr>
+                    </thead>
+
+                    <!-- Body -->
+                    <tbody id="ProductList" class="table-group-divider"></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- ADDING PRODUCT INFO MODAL -->
+        <div class="modal fade AdminModal" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title fw-bold">Plant Management</h2>
+                        <button type="button" class="btn-close" onclick="window.resetModal()" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-pagelines" aria-hidden="true"></i></span>
+                            <input id="ProductName" type="text" class="form-control" placeholder="Plant Name">
+                        </div>
+                        <div id="nameError" class="text-danger ms-5 d-none">Input name of plant</div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-usd" aria-hidden="true"></i></i></span>
+                            <input id="ProductPrice" type="text" class="form-control" placeholder="Price">
+                        </div>
+                        <div id="priceError" class="text-danger ms-5 d-none">Input price of plant,only containing digits
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                            <input id="ProductImage" type="text" class="form-control" placeholder="Image Link">
+                        </div>
+                        <div id="imageError" class="text-danger ms-5 d-none">Input an existing image URL (png, jpg, webp)</div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                            <input id="ProductDescription" type="text" class="form-control" placeholder="Description">
+                        </div>
+                        <div id="descriptionError" class="text-danger ms-5 d-none">Input description of plant </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-sun-o" aria-hidden="true"></i></span>
+                            <select class="form-select" id="ProductType" aria-label="Default select example">
+                                <option value="1">Indoor Plants</option>
+                                <option value="2">Outdoor Plants</option>
+                            </select>
+                        </div>
+                        <div id="typeError" class="text-danger ms-5 d-none">Input type of plant </div>
+
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </main>
+    <footer>
+        <!-- place footer here -->
+        <div class="container">
+            <div class="row">
+                <div class="contact col-lg-3 col-md-6 col-sm-12">
+                    <h1 class="fw-bold display-3">GREENERY</h1>
+                    <ul>
+                        <li>Address <i class="fa fa-address-book"></i> :
+                            <a href="">District 1, Ho Chi Minh city</a>
+                        </li>
+                        <li>Tel <i class="fa fa-phone"></i> :
+                            <a href="tel:+84 073 289 4532">+84 073 289 4532</a>
+                        </li>
+                        <li>Email <i class="fa fa-envelope"></i> :
+                            <a href="email:capstoneAPI@gmail.com">capstoneAPI@gmail.com</a>
+                        </li>
+                    </ul>
+                    <div class="position-absolute">
+                        <img src="../../asset/img/footer2.png" alt="footer2">
+                    </div>
+                </div>
+                <div class="readMore col-lg-3 col-md-6 col-sm-12">
+                    <h1 class="fw-bold display-7">Read more</h1>
+                    <ul>
+                        <li>
+                            <a href="#">> Links</a>
+                        </li>
+                        <li>
+                            <a href="#">> Blog Posts</a>
+                        </li>
+                        <li>
+                            <a href="#">> About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">> Service</a>
+                        </li>
+                        <li>
+                            <a href="#">> Team</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 text-end">
+                    <div class="footer__right text-center">
+                        <div>
+                            <img src="../../asset/img/footer1.png" alt="footer2">
+                        </div>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script type="module" src="../controller/admin.js"></script>
+    <script type="module" src="../../main.js"></script>
+</body>
+
+</html>

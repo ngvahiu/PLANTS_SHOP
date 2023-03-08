@@ -1,0 +1,16 @@
+@import "./Helpers/variables";
+@import "./Helpers/mixins";
+
+@import "./Base/reset";
+@import "./Base/customize";
+
+@import "./Components/button";
+
+@import "./Layouts/homepage";
+@import "./Layouts/header";
+@import "./Layouts/carouselCustomer";
+@import "./Layouts/productsCustomer";
+@import "./Layouts/footer";
+@import "./Layouts/cartModal";
+@import "./Layouts/tableAdmin"
+

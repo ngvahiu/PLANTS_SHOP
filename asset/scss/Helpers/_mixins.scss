@@ -1,0 +1,27 @@
+@mixin textStyle($color, $fs, $fw) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+}
+
+@mixin buttonStyle($bg, $border, $borderRadius, $px, $py) {
+    background-color: $bg;
+    border: $border;
+    border-radius: $borderRadius;
+    padding: $py $px;
+}
+
+@mixin buttonStyleHover($bg, $color, $opa) {
+    background-color: $bg ip !important;
+    color: $color !important;
+    opacity: $opa !important;
+}
+
+@mixin responsive($screen) {
+    @if(map-has-key($map: $breakpoints, $key: $screen)) {
+        $width: map-get($map: $breakpoints, $key: $screen);
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
