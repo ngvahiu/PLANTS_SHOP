@@ -4,7 +4,7 @@ import {
   apiGetProductById,
   apiDeleteProduct,
   apiCreateProduct,
-} from "../services/productAPI.js";
+} from "../services/ProductAPI.js";
 import Product from "../../Product.js";
 import Swal from "sweetalert2";
 
